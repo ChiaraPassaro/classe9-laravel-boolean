@@ -5,16 +5,16 @@
             <div class="student">
 
                 <div class="info">
-                    <img src="{{$student['img']}}" alt="{{$student['nome']}}">
+                    <img src="{{$student['img']}}" alt="{{$student['name']}}">
                     <div class="text">
                         <h2>
-                            {{$student['nome']}} ( {{$student['eta']}} anni)
+                            {{$student['name']}} ( {{$student['age']}} anni)
                         </h2>
-                        <h3>Assunt{{ ($student['genere'] == 'm') ? 'o' : 'a' }}  da {{$student['azienda']}} come {{$student['ruolo']}}</h3>
+                        <h3>Assunt{{ ($student['gender'] == 'm') ? 'o' : 'a' }}  da {{$student['company']}} come {{$student['role']}}</h3>
                     </div>
                 </div>
                 
-                <p class="description">{{$student['descrizione']}}</p>
+                <p class="description">{{$student['description']}}</p>
             </div>
     </div>
 @endsection

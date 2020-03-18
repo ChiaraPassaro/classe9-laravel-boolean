@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// static page
+// static pages
 Route::get('/', 'StaticPageController@index')->name('static_page.home');
+Route::get('/faq', 'StaticPageController@faq')->name('static_page.faq');
 Route::get('/privacy', 'StaticPageController@privacy')->name('static_page.privacy');
-Route::get('/domande-frequenti', 'StaticPageController@faq')->name('static_page.faq');
 
-// studenti
-Route::get('/students', 'StudentController@index')->name('student.index');
-Route::get('/students/show/{id}', 'StudentController@show')->name('student.show');
+// students
+Route::get('/carriere', 'StudentController@index')->name('student.index');
+
+//se vogliamo che la variabile passata sia facoltativa
+// Route::get('/carriere/studente/{slug?}', 'StudentController@show')->name('student.show');
+Route::get('/carriere/studente/{slug}', 'StudentController@show')->name('student.show');

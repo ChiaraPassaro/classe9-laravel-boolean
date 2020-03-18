@@ -1,24 +1,23 @@
 @extends('layouts.layout')
 
 @section('main')
-    <div class="students">
-    @foreach (config('students.students') as $key => $student)
-            <div class="student">
-
-                <div class="info">
-                    <img src="{{$student['img']}}" alt="{{$student['nome']}}">
-                    <div class="text">
-                        <a href="{{route('student.show', ['id' => $key])}}">
-                            <h2>
-                                {{$student['nome']}} ( {{$student['eta']}} anni)
-                            </h2>
-                        </a>
-                        <h3>Assunt{{ ($student['genere'] == 'm') ? 'o' : 'a' }}  da {{$student['azienda']}} come {{$student['ruolo']}}</h3>
-                    </div>
+<div class="students">
+    @foreach ($students as $student)
+        <div class="student">
+            <div class="info">
+            <img src="{{$student['img']}}" alt="{{$student['name']}}">
+                <div class="text">
+                <a href="{{route('student.show', ['slug' => $student['slug']])}}"><h2>{{$student['name']}} ({{$student['age']}} anni)</h2></a>
+                    {{-- se gender è == f a altrimenti o --}}
+                    <h3>Assunt{{($student['gender'] == 'f') ? 'a' : 'o'}} da {{$student['company']}} come {{$student['role']}}</h3>
+                    {{-- <h3>@if($student['gender'] == 'f')Assunta @else Assunto @endif
+                    </h3> --}}
                 </div>
-                
-                <p class="description">{{$student['descrizione']}}</p>
             </div>
-        @endforeach
+            <p class="description">
+                {{$student['description']}}
+            </p>
+        </div>
+    @endforeach
     </div>
 @endsection

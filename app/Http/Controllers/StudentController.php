@@ -10,57 +10,88 @@ class StudentController extends Controller
 
     public function __construct()
     {
-        $this->getAllStudents();
+       $this->students =  [
+            [
+                'img' => 'https://www.topolino.it/wp-content/uploads/2019/12/pippointera.png',
+                'name' => 'Pippo',
+                'age' => 30,
+                'company' => 'Disney',
+                'description' => 'lorem ipsum',
+                'role' => 'Web Developer',
+                'gender' => 'm',
+                'slug' => 'pippo'
+            ],
+            [
+                'img' => 'https://www.cartonionline.com/immagini/topolino/topolino.jpg',
+                'name' => 'Topolino',
+                'age' => 50,
+                'company' => 'Disney',
+                'description' => 'lorem ipsum',
+                'role' => 'Backend Developer',
+                'gender' => 'm',
+                'slug' => 'topolino'
+            ],
+            [
+                'img' => 'https://wips.plug.it/cips/supereva/cms/2019/07/104750479_l.jpg?w=850&a=r',
+                'name' => 'Minnie',
+                'age' => 50,
+                'company' => 'Disney',
+                'description' => 'lorem ipsum',
+                'role' => 'Frontend Developer',
+                'gender' => 'f',
+                'slug' => 'minnie'
+            ]
+        ];
     }
     //
     public function index()
     {
-        // $students = $this->students;
-        //return view('students.index', compact('students'));
-        return view('students.index');
+        $data = [
+                'students' => $this->students,
+                'gender' => [
+                    'm',
+                    'f'
+                ]
+        ];
+
+        // return view('students.index', compact('students'));
+        return view('students.index', $data);
     }
 
-    public function show($id)
+    public function show($slug = null) 
     {
-        if(!array_key_exists( $id, $this->students)) {
-           abort('404');
+        // [
+        //     'img' => 'https://wips.plug.it/cips/supereva/cms/2019/07/104750479_l.jpg?w=850&a=r',
+        //     'name' => 'Minnie',
+        //     'age' => 50,
+        //     'company' => 'Disney',
+        //     'description' => 'lorem ipsum',
+        //     'role' => 'Frontend Developer',
+        //     'gender' => 'f',
+        //     'slug' => 'minnie'
+        // ]
+        // $find = false;
+        // $thisStudent = [];
+        // foreach ($this->students as $studente) {
+        //     if($studente['slug'] == $slug) {
+        //         $find = true;
+        //         $thisStudent = $studente;
+        //     }
+        // }
+
+        // if($find) {
+        //     return view('students.show', ['student' => $thisStudent]);
+        // } else {
+        //     abort('404');
+        // }
+        
+        foreach ($this->students as $studente) {
+            if($studente['slug'] == $slug) {
+                return view('students.show', ['student' => $studente]);
+            }
         }
 
-        $student = $this->students[$id];
-
-        return view('students.show', compact('student'));
-    }
-
-    private function getAllStudents() {
-        // $this->students = [
-        //     [
-        //         'img' => 'https://www.boolean.careers/images/students/biagini.png',
-        //         'nome' => 'Alessandro Biagini',
-        //         'eta' => 25,
-        //         'azienda' => 'DISC SPA',
-        //         'ruolo' => 'web developer',
-        //         'descrizione' => 'Da giocatore professionista di basket a sviluppatore web. 6 mesi di impegno da MVP e un memorabile tap-in targato Boolean hanno garantito ad Alessandro un solido futuro come web developer.'
-        //     ],
-        //     [
-        //         'img' => 'https://www.boolean.careers/images/students/biagini.png',
-        //         'nome' => 'Loana Masetti',
-        //         'eta' => 36,
-        //         'azienda' => 'The Zen Agency',
-        //         'ruolo' => 'web developer',
-        //         'descrizione' => 'Ha scoperto la passione per l\'informatica creando un blog di psicologia, ambito in cui si era specializzata durante gli studi. Il suo cuore però non vuol sentir ragione e Loana cambia carriera e diventa una ricercatissima sviluppatrice web.'
-        //     ],
-        //     [
-        //         'img' => 'https://www.boolean.careers/images/students/poggini.png',
-        //         'nome' => 'Paola Poggini',
-        //         'eta' => 24,
-        //         'azienda' => 'Prima Assicurazioni',
-        //         'ruolo' => 'junior software engineer',
-        //         'descrizione' => 'A 24 anni, dopo aver conseguito il diploma linguistico ha deciso di intraprendere fin da subito un percorso nel mondo Tech. Ad oggi ricopre il ruolo di Junior Software Engineer.'
-        //     ],
-        // ];
-
-        $this->students = config('students.students');
-        //dd($this->students);
+        return abort('404');
 
     }
 }

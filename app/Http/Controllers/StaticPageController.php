@@ -9,7 +9,8 @@ class StaticPageController extends Controller
     //
     public function index()
     {
-        $students = config('students.students');
+     
+        // $pincoPallo = (isset($pinco)) ? 'pinco' : 'pallo';
         return view('staticpages.index');
     }
 
@@ -20,6 +21,6 @@ class StaticPageController extends Controller
 
     public function faq()
     {
-        # code...
+        return view('staticpages.faq');
     }
 }
