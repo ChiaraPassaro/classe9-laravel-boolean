@@ -29,3 +29,5 @@ Route::get('/carriere', 'StudentController@index')->name('student.index');
 //se vogliamo che la variabile passata sia facoltativa
 // Route::get('/carriere/studente/{slug?}', 'StudentController@show')->name('student.show');
 Route::get('/carriere/studente/{slug}', 'StudentController@show')->name('student.show');
+
+Route::get('/carriere/studente/id/{id}', 'StudentController@getById')->name('student.showId');

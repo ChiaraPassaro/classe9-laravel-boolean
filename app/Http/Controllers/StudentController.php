@@ -7,51 +7,19 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     private $students;
+    private $genders;
 
     public function __construct()
     {
-       $this->students =  [
-            [
-                'img' => 'https://www.topolino.it/wp-content/uploads/2019/12/pippointera.png',
-                'name' => 'Pippo',
-                'age' => 30,
-                'company' => 'Disney',
-                'description' => 'lorem ipsum',
-                'role' => 'Web Developer',
-                'gender' => 'm',
-                'slug' => 'pippo'
-            ],
-            [
-                'img' => 'https://www.cartonionline.com/immagini/topolino/topolino.jpg',
-                'name' => 'Topolino',
-                'age' => 50,
-                'company' => 'Disney',
-                'description' => 'lorem ipsum',
-                'role' => 'Backend Developer',
-                'gender' => 'm',
-                'slug' => 'topolino'
-            ],
-            [
-                'img' => 'https://wips.plug.it/cips/supereva/cms/2019/07/104750479_l.jpg?w=850&a=r',
-                'name' => 'Minnie',
-                'age' => 50,
-                'company' => 'Disney',
-                'description' => 'lorem ipsum',
-                'role' => 'Frontend Developer',
-                'gender' => 'f',
-                'slug' => 'minnie'
-            ]
-        ];
+       $this->students = config('students.students');
+       $this->genders = config('students.genders');
     }
     //
     public function index()
     {
         $data = [
-                'students' => $this->students,
-                'gender' => [
-                    'm',
-                    'f'
-                ]
+            'students' => $this->students,
+            'genders' => $this->genders
         ];
 
         // return view('students.index', compact('students'));
@@ -92,6 +60,23 @@ class StudentController extends Controller
         }
 
         return abort('404');
+
+    }
+
+    public function getById($id) {
+        // foreach ($this->students as $key => $student) {
+        //     if($key == $id) {
+        //         return
+        //     }
+        // }
+        // return abort('404');
+
+        if(!array_key_exists( $id , $this->students)) {
+            return abort('404');
+        }
+
+        return view('students.show', ['student' => $this->students[$id]]);
+
 
     }
 }

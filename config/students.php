@@ -1,32 +1,36 @@
 <?php
 return [
-  'students' => [
-    [
-      'img' => 'https://www.boolean.careers/images/students/biagini.png',
-      'nome' => 'Alessandro Biagini',
-      'eta' => 25,
-      'azienda' => 'DISC SPA',
-      'ruolo' => 'web developer',
-      'descrizione' => 'Da giocatore professionista di basket a sviluppatore web. 6 mesi di impegno da MVP e un memorabile tap-in targato Boolean hanno garantito ad Alessandro un solido futuro come web developer.',
-      'genere' => 'm'
+   'students' => [
+            [
+                'img' => 'https://www.topolino.it/wp-content/uploads/2019/12/pippointera.png',
+                'name' => 'Pippo',
+                'age' => 30,
+                'company' => 'Disney',
+                'description' => 'lorem ipsum',
+                'role' => 'Web Developer',
+                'gender' => 'm',
+                'slug' => 'pippo'
+            ],
+            [
+                'img' => 'https://www.cartonionline.com/immagini/topolino/topolino.jpg',
+                'name' => 'Topolino',
+                'age' => 50,
+                'company' => 'Disney',
+                'description' => 'lorem ipsum',
+                'role' => 'Backend Developer',
+                'gender' => 'm',
+                'slug' => 'topolino'
+            ],
+            [
+                'img' => 'https://wips.plug.it/cips/supereva/cms/2019/07/104750479_l.jpg?w=850&a=r',
+                'name' => 'Minnie',
+                'age' => 50,
+                'company' => 'Disney',
+                'description' => 'lorem ipsum',
+                'role' => 'Frontend Developer',
+                'gender' => 'f',
+                'slug' => 'minnie'
+            ]
     ],
-    [
-      'img' => 'https://www.boolean.careers/images/students/masetti.png',
-      'nome' => 'Loana Masetti',
-      'eta' => 36,
-      'azienda' => 'The Zen Agency',
-      'ruolo' => 'web developer',
-      'descrizione' => 'Ha scoperto la passione per l\'informatica creando un blog di psicologia, ambito in cui si era specializzata durante gli studi. Il suo cuore però non vuol sentir ragione e Loana cambia carriera e diventa una ricercatissima sviluppatrice web.',
-      'genere' => 'f'
-    ],
-    [
-      'img' => 'https://www.boolean.careers/images/students/poggini.png',
-      'nome' => 'Paola Poggini',
-      'eta' => 24,
-      'azienda' => 'Prima Assicurazioni',
-      'ruolo' => 'junior software engineer',
-      'descrizione' => 'A 24 anni, dopo aver conseguito il diploma linguistico ha deciso di intraprendere fin da subito un percorso nel mondo Tech. Ad oggi ricopre il ruolo di Junior Software Engineer.',
-      'genere' => 'f'
-    ],
-  ]
-];
+    'genders' => ['m', 'f', 'all']
+  ];

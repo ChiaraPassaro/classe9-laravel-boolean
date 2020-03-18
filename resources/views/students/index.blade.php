@@ -1,6 +1,13 @@
 @extends('layouts.layout')
 
 @section('main')
+<div class="filter">
+    <select name="filter" id="filter">
+        @foreach ($genders as $gender)
+            <option value="{{$gender}}">{{$gender}}</option>
+        @endforeach
+    </select>
+</div>
 <div class="students">
     @foreach ($students as $student)
         <div class="student">
@@ -20,4 +27,8 @@
         </div>
     @endforeach
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{asset('js/app.js')}}"></script>
 @endsection
