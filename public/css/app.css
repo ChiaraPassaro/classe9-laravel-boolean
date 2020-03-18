@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  height: 90px;
+  color: white;
+  background-color: blue;
+}
+
+.navbar:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.navbar .logo {
+  padding: 0 0 0 10px;
+  line-height: 90px;
+  float: left;
+}
+
+.navbar ul {
+  float: right;
+  list-style: none;
+  text-align: right;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin: 0 30px;
+  line-height: 90px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar ul li a.active {
+  color: red;
+}
+
+.nav-footer {
+  background-color: grey;
+  height: 100px;
+}
+
+.nav-footer:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.nav-footer ul {
+  float: right;
+  list-style: none;
+  text-align: right;
+}
+
+.nav-footer ul a {
+  color: white;
+}
+
+.students {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.students .student {
+  width: calc(100% / 2 - 20px);
+  margin: 20px 10px;
+  padding: 20px;
+  background-color: lightgrey;
+}
+
+.students .student .info:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.students .student .info img,
+.students .student .info .text {
+  float: left;
+}
+
+.students .student .info img {
+  width: 90px;
+  margin-right: 10px;
+}
+
+.students .student .info .text {
+  width: calc(100% - 100px);
+}
+
